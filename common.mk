@@ -105,6 +105,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     com.android.nfc_extras
+    
+# Offmode charging
+PRODUCT_PACKAGES += \
+    chargeonlymode
 
 # Power
 PRODUCT_PACKAGES += \
