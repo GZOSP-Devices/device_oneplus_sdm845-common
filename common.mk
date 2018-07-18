@@ -105,6 +105,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.qcom:64
 
+# Prebuilts
+PRODUCT_PACKAGES += \
+    OnePlusCamera \
+    OnePlusCameraService     
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/addon.d/51-oneplus-camera.sh:system/addon.d/51-oneplus-camera.sh  \
+    $(LOCAL_PATH)/prebuilts/etc/permissions/privapp-permissions-oem.xml:system/etc/permissions/privapp-permissions-oem.xml \
+    $(LOCAL_PATH)/prebuilts/lib/libopcameralib-em.so:system/lib/libopcameralib-em.so        
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
