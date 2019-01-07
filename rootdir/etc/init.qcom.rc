@@ -57,7 +57,11 @@ on boot
     mkdir /persist/battery 0770 system system
 
 on post-fs
+    # Vibration
+    chown system system /sys/class/leds/vibrator/vmax_override
+    write /sys/class/leds/vibrator/vmax_override 1
     chown system system /sys/class/leds/vibrator/vmax_mv_user
+    chown system system /sys/class/leds/vibrator/vmax_mv_call
 
 on charger
     write /sys/class/backlight/panel0-backlight/brightness 150
