@@ -349,7 +349,7 @@
 
     <!-- Enable system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
-    
+
     <!-- Internal default to navigation bar value -->
     <bool name="config_defaultToNavigationBar">false</bool>
 
@@ -364,5 +364,13 @@
 
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
     <bool name="config_smart_battery_available">true</bool>
+    
+    <!-- The list absolute paths of jar/apk files containing the device specific handlers,
+         delimited by File.pathSeparator, which defaults to ":" on Android -->
+    <string name="config_deviceKeyHandlerLib" translatable="false">/system/priv-app/KeyHandler/KeyHandler.apk</string>
+
+    <!-- Full qualified name of the class that implements
+         com.android.internal.os.DeviceKeyHandler interface. -->
+    <string name="config_deviceKeyHandlerClass" translatable="false">org.lineageos.settings.device.KeyHandler</string>
 
 </resources>
