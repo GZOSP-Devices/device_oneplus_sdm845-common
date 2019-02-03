@@ -1,5 +1,4 @@
-# Allow access to LiveDisplay tuning nodes
-allow system_server sysfs_livedisplay:file rw_file_perms;
-
 allow system_server vendor_data_file:dir search;
 allow system_server vendor_data_file:file { read open getattr };
+# Allow access to LiveDisplay tuning nodes
+#allow system_server sysfs_livedisplay_tuneable:file rw_file_perms;
