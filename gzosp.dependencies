@@ -1,0 +1,12 @@
+[
+  {
+    "repository":  "GZR-Kernels/kernel_oneplus_sdm845",
+    "target_path": "kernel/oneplus/sdm845",
+    "branch":      "fajita"
+  },
+  {
+    "repository":  "BigTopKrazies/proprietary_vendor_oneplus",
+    "target_path": "vendor/oneplus",
+    "branch":      "9.0"
+  }
+]
