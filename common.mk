@@ -121,6 +121,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.qcom:64
 
+# Screen Off Gestures
+PRODUCT_PACKAGES += \
+    ScreenOffGestures
+
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/ScreenOffGestures/overlay
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext

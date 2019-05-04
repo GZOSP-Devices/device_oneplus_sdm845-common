@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          android:sharedUserId="android.uid.system"
+          package="com.aicp.device"
+          android:versionCode="1"
+          android:versionName="1" >
+
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-sdk
+        android:minSdkVersion="24" />
+
+    <application
+            android:icon="@android:drawable/sym_def_app_icon"
+            android:label="ScreenOffGestures"
+            >
+
+        <!-- stub to ensure its loaded - DO NOT REMOVE -->
+        <activity android:name=".ScreenKeyHandler" />
+
+        <activity
+            android:name=".settings.ScreenOffGestureSettings"
+            android:label="@string/screen_off_gesture_title"
+            android:theme="@style/ScreenOffGesturesTheme">
+          <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+          </intent-filter>
+          <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_gestures" />
+          <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.homepage" />
+        </activity>
+
+        <receiver android:name=".BootReceiver" >
+          <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.SCREEN_CAMERA_GESTURE" />
+          </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

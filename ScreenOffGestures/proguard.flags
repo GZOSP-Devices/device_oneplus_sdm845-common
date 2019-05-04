@@ -1,0 +1,5 @@
+-keep public class com.aicp.device.ScreenOffGestures
+
+-keepclassmembers public class com.aicp.device.ScreenOffGestures {
+    *;
+}
