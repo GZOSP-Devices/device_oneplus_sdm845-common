@@ -24,7 +24,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=com.oneplus.camera
+    vendor.camera.aux.packagelist=com.oneplus.camera \
+    vendor.camera.hal1.packagelist=com.whatsapp
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
