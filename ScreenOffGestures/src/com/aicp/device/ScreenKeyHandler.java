@@ -68,7 +68,7 @@ public class ScreenKeyHandler implements DeviceKeyHandler {
     private static final String TAG = ScreenKeyHandler.class.getSimpleName();
     private static final boolean DEBUG = true;
     protected static final int GESTURE_REQUEST = 1;
-    private static final int GESTURE_WAKELOCK_DURATION = 2000;
+    private static final int GESTURE_WAKELOCK_DURATION = 3000;
     private static final String KEY_CONTROL_PATH = "/proc/touchpanel/key_disable";
     private static final String FPC_CONTROL_PATH = "/sys/module/fpc1020_tee/parameters/ignor_home_for_ESD";
 
@@ -273,44 +273,59 @@ public class ScreenKeyHandler implements DeviceKeyHandler {
                 break;
             case GESTURE_SWIPE_DOWN_SCANCODE:
                 if (DEBUG) Log.i(TAG, "GESTURE_SWIPE_DOWN_SCANCODE");
-                action = getGestureSharedPreferences()
+                /*action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_DOUBLE_SWIPE,
                         ActionConstants.ACTION_MEDIA_PLAY_PAUSE);
-                        doHapticFeedback();
+                        doHapticFeedback();*/
+                dispatchMediaKeyWithWakeLockToMediaSession(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
                 break;
-            case GESTURE_V_SCANCODE:
+            case GESTURE_V_SCANCODE: {
                 if (DEBUG) Log.i(TAG, "GESTURE_V_SCANCODE");
-                action = getGestureSharedPreferences()
+                /*action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_DOWN,
                         ActionConstants.ACTION_VIB_SILENT);
-                        doHapticFeedback();
+                        doHapticFeedback();*/
+                String rearCameraId = getRearCameraId();
+                if (rearCameraId != null) {
+                    mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
+                    try {
+                        mCameraManager.setTorchMode(rearCameraId, !mTorchEnabled);
+                        mTorchEnabled = !mTorchEnabled;
+                    } catch (CameraAccessException e) {
+                        // Ignore
+                    }
+                    doHapticFeedback();
+                }
                 break;
+            }
             case GESTURE_V_UP_SCANCODE:
                 if (DEBUG) Log.i(TAG, "GESTURE_V_UP_SCANCODE");
-                action = getGestureSharedPreferences()
+                /*action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_UP,
                         ActionConstants.ACTION_TORCH);
-                        doHapticFeedback();
+                        doHapticFeedback();*/
                 break;
             case GESTURE_LTR_SCANCODE:
                 if (DEBUG) Log.i(TAG, "GESTURE_LTR_SCANCODE");
-                action = getGestureSharedPreferences()
+                /*action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_LEFT,
                         ActionConstants.ACTION_MEDIA_PREVIOUS);
-                        doHapticFeedback();
+                        doHapticFeedback();*/
+                dispatchMediaKeyWithWakeLockToMediaSession(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
                 break;
             case GESTURE_GTR_SCANCODE:
                 if (DEBUG) Log.i(TAG, "GESTURE_GTR_SCANCODE");
-                action = getGestureSharedPreferences()
+                /*action = getGestureSharedPreferences()
                         .getString(ScreenOffGesture.PREF_GESTURE_ARROW_RIGHT,
                         ActionConstants.ACTION_MEDIA_NEXT);
-                        doHapticFeedback();
+                        doHapticFeedback();*/
+                dispatchMediaKeyWithWakeLockToMediaSession(KeyEvent.KEYCODE_MEDIA_NEXT);
                 break;
             }
 
-            if (action == null || action != null && action.equals(ActionConstants.ACTION_NULL)) {
+            /*if (action == null || action != null && action.equals(ActionConstants.ACTION_NULL)) {
                 return;
-            }
+            }*/
         }
     }
 
@@ -405,6 +420,19 @@ public class ScreenKeyHandler implements DeviceKeyHandler {
                 event = KeyEvent.changeAction(event, KeyEvent.ACTION_UP);
                 dispatchMediaKeyEventUnderWakelock(event);
             }
+        }
+    }
+
+    private void dispatchMediaKeyWithWakeLockToMediaSession(int keycode) {
+        MediaSessionLegacyHelper helper = MediaSessionLegacyHelper.getHelper(mContext);
+        if (helper != null) {
+            KeyEvent event = new KeyEvent(SystemClock.uptimeMillis(),
+                    SystemClock.uptimeMillis(), KeyEvent.ACTION_DOWN, keycode, 0);
+            helper.sendMediaButtonEvent(event, true);
+            event = KeyEvent.changeAction(event, KeyEvent.ACTION_UP);
+            helper.sendMediaButtonEvent(event, true);
+        } else {
+            Log.w(TAG, "Unable to send media key event");
         }
     }
 

@@ -45,11 +45,11 @@
                 android:persistent="false"
                 android:dependency="enable_gestures" />
 
-            <Preference
+            <!-- <Preference
                 android:key="gesture_arrow_up"
                 android:title="@string/gesture_arrow_up_title"
                 android:persistent="false"
-                android:dependency="enable_gestures" />
+                android:dependency="enable_gestures" /> -->
 
             <Preference
                 android:key="gesture_circle"
