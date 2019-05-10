@@ -68,7 +68,7 @@ public class ScreenKeyHandler implements DeviceKeyHandler {
     private static final String TAG = ScreenKeyHandler.class.getSimpleName();
     private static final boolean DEBUG = true;
     protected static final int GESTURE_REQUEST = 1;
-    private static final int GESTURE_WAKELOCK_DURATION = 3000;
+    private static final int GESTURE_WAKELOCK_DURATION = 1500;
     private static final String KEY_CONTROL_PATH = "/proc/touchpanel/key_disable";
     private static final String FPC_CONTROL_PATH = "/sys/module/fpc1020_tee/parameters/ignor_home_for_ESD";
 
