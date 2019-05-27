@@ -57,6 +57,8 @@ on boot
 
     mkdir /persist/battery 0770 system system
 
+    exec u:r:init:s0 -- /init.radioactive.sh
+
 on post-fs
     # Vibration
     chown system system /sys/class/leds/vibrator/vmax_override
