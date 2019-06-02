@@ -68,7 +68,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc
 
 # Camera
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES_DEBUG += \
     CameraPackage
 
 # Display
