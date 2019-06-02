@@ -46,10 +46,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AntHalService
 
-# Aquicultor Kernel Tweaks
-PRODUCT_PACKAGES += \
-    init.radioactive.sh
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
