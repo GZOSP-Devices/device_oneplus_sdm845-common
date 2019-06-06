@@ -39,8 +39,8 @@ import android.view.MenuItem;
 
 import com.android.internal.util.gzosp.AppHelper;
 import com.android.internal.util.gzosp.ActionConstants;
-import com.android.internal.util.aicp.DeviceUtils;
-import com.android.internal.util.aicp.DeviceUtils.FilteredDeviceFeaturesArray;
+import com.android.internal.util.gzosp.DeviceUtils;
+import com.android.internal.util.gzosp.DeviceUtils.FilteredDeviceFeaturesArray;
 
 import com.aicp.device.KernelControl;
 import com.aicp.device.R;
