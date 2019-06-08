@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.aicp.device;
+package com.gzosp.device;
 
-import com.aicp.device.util.FileUtils;
+import com.gzosp.device.util.FileUtils;
 
 import java.io.File;
 

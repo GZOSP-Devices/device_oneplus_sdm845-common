@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.aicp.device.util;
+package com.gzosp.device.util;
 
 import android.util.Log;
 

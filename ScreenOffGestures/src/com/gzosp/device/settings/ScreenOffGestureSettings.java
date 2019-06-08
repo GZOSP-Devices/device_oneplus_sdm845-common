@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.aicp.device.settings;
+package com.gzosp.device.settings;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.aicp.device.settings;
+package com.gzosp.device.settings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -42,9 +42,9 @@ import com.android.internal.util.gzosp.ActionConstants;
 import com.android.internal.util.gzosp.DeviceUtils;
 import com.android.internal.util.gzosp.DeviceUtils.FilteredDeviceFeaturesArray;
 
-import com.aicp.device.KernelControl;
-import com.aicp.device.R;
-import com.aicp.device.util.ShortcutPickerHelper;
+import com.gzosp.device.KernelControl;
+import com.gzosp.device.R;
+import com.gzosp.device.util.ShortcutPickerHelper;
 
 public class ScreenOffGesture extends PreferenceFragment implements
         OnPreferenceChangeListener, OnPreferenceClickListener,

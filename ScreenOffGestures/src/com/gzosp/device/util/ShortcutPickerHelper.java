@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.aicp.device.util;
+package com.gzosp.device.util;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -28,7 +28,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 
-import com.aicp.device.R;
+import com.gzosp.device.R;
 
 import com.android.internal.util.gzosp.AppHelper;
 

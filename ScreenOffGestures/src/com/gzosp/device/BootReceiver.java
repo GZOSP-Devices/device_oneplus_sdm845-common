@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aicp.device;
+package com.gzosp.device;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -24,9 +24,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
-import com.aicp.device.KernelControl;
-import com.aicp.device.settings.ScreenOffGesture;
-import com.aicp.device.util.FileUtils;
+import com.gzosp.device.KernelControl;
+import com.gzosp.device.settings.ScreenOffGesture;
+import com.gzosp.device.util.FileUtils;
 
 import java.io.File;
 

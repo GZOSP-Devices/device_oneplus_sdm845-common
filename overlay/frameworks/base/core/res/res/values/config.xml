@@ -378,7 +378,7 @@
 
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-        <item>com.aicp.device.ScreenKeyHandler</item>
+        <item>com.gzosp.device.ScreenKeyHandler</item>
         <item>org.lineageos.settings.device.KeyHandler</item>
     </string-array>
 

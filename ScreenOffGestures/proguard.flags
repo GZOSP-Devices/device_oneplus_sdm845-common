@@ -1,5 +1,5 @@
--keep public class com.aicp.device.ScreenOffGestures
+-keep public class com.gzosp.device.ScreenOffGestures
 
--keepclassmembers public class com.aicp.device.ScreenOffGestures {
+-keepclassmembers public class com.gzosp.device.ScreenOffGestures {
     *;
 }

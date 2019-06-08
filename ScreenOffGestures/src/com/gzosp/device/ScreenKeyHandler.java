@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aicp.device;
+package com.gzosp.device;
 
 import android.app.ActivityManagerNative;
 import android.app.KeyguardManager;
@@ -57,11 +57,11 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.aicp.FileUtils;
+import com.android.internal.util.gzosp.FileUtils;
 import com.android.internal.util.gzosp.ActionConstants;
 import com.android.internal.util.gzosp.Action;
 
-import com.aicp.device.settings.ScreenOffGesture;
+import com.gzosp.device.settings.ScreenOffGesture;
 
 public class ScreenKeyHandler implements DeviceKeyHandler {
 
@@ -229,7 +229,7 @@ public class ScreenKeyHandler implements DeviceKeyHandler {
 
         try {
             mGestureContext = mContext.createPackageContext(
-                    "com.aicp.device", Context.CONTEXT_IGNORE_SECURITY);
+                    "com.gzosp.device", Context.CONTEXT_IGNORE_SECURITY);
         } catch (NameNotFoundException e) {
         }
     }
