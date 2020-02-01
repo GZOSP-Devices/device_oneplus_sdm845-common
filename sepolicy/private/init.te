@@ -1,6 +1,3 @@
-# Allow init to mount wlan kernel module
-allow init { system_file vendor_file }:file mounton;
-
 # Allow init to mount vendor configs
 allow init vendor_configs_file:dir mounton;
 
@@ -9,3 +6,6 @@ allow init {
     sysfs_fpc_proximity
     sysfs_graphics
 }:file { open read setattr };
+
+# Allow init to write to otg_switch
+allow init sysfs_usb_supply:file w_file_perms;
